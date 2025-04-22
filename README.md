@@ -1,5 +1,6 @@
 # Gradient Descent on a Convex Quadratic Function
 最大固有値 $\lambda_{\max}(X) = 100$ をもつ正定値行列
+
 $$
 X=
 \begin{pmatrix} 
@@ -10,30 +11,33 @@ X=
   0 & 0 & 0 & \dots  & 100
 \end{pmatrix}
 $$
-に対して、$\mathbb{R}^{100}$ で定義される2次凸関数
-$$f(\bm{\theta}) := \frac{1}{2}\langle\bm{\theta},X\bm{\theta}\rangle = \frac{1}{2}\left(\theta_1^2+2\theta_2^2+3\theta_3^2+\cdots+100\theta_{100}^2\right)$$
-の大域的最小解 $\bm{\theta}^{\star}=\bm{0}$ を探す勾配降下法の実装例です。
+
+に対して、
+$\mathbb{R}^{100}$ 
+で定義される2次凸関数
+
+$$
+f(\boldsymbol{\theta}) := \frac{1}{2}\langle\boldsymbol{\theta},X\boldsymbol{\theta}\rangle = \frac{1}{2}\left(\theta_1^2+2\theta_2^2+3\theta_3^2+\cdots+100\theta_{100}^2\right)
+$$
+
+の大域的最小解
+$\boldsymbol{\theta}^{\star}=\boldsymbol{0}$
+を探す勾配降下法の実装例です。
 
 ## ステップサイズスケジューラ
 以下の6つのスケジューラを用いて、ステップサイズを変化させることができます。
-$$
-\text{［定数ステップサイズ］} \eta_t = \overline{\eta}
-$$
-$$
-\text{［減衰ステップサイズ］} \eta_t = \frac{\overline{\eta}}{\sqrt{t+1}} \ (t \in [0 : T-1])
-$$
-$$
-\text{［線形減衰ステップサイズ］} \eta_t = \overline{\eta}\left(1-\frac{t}{T}\right) \ (t \in [0 : T-1])
-$$
-$$
-\text{［コサインステップサイズ］} \eta_t = \frac{\overline{\eta}}{2}\left(1+\cos{\frac{t\pi}{T}}\right) \ (t \in [0 : T-1])
-$$
-$$
-\text{［指数増加ステップサイズ］} \eta_t = \underline{\eta} r^{t} \ (t \in [0 : T-1])
-$$
-$$
-\text{［ウォームアップステップサイズ］} \eta_t = \underline{\eta} r^{t} \ (t \in [0 : T_w]), \quad \eta_t =\underline{\eta} r^{T_w} \ (t \in [T_w : T-1])
-$$
+
+［定数ステップサイズ］ $\eta_t = \overline{\eta}$
+
+［減衰ステップサイズ］ $\eta_t = \frac{\overline{\eta}}{\sqrt{t+1}} \ (t \in [0 : T-1])$
+
+［線形減衰ステップサイズ］ $\eta_t = \overline{\eta}\left(1-\frac{t}{T}\right) \ (t \in [0 : T-1])$
+
+［コサインステップサイズ］ $\eta_t = \frac{\overline{\eta}}{2}\left(1+\cos{\frac{t\pi}{T}}\right) \ (t \in [0 : T-1])$
+
+［指数増加ステップサイズ］ $\eta_t = \underline{\eta} r^{t} \ (t \in [0 : T-1])$
+
+［ウォームアップステップサイズ］ $\eta_t = \underline{\eta} r^{t} \ (t \in [0 : T_w]), \quad \eta_t =\underline{\eta} r^{T_w} \ (t \in [T_w : T-1])$
 
 スケジューラの概形は以下の通りです。
 
