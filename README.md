@@ -27,28 +27,28 @@ $\boldsymbol{\theta}^{\star}=\boldsymbol{0}$
 ## ステップサイズスケジューラ
 以下の6つのスケジューラを用いて、ステップサイズを変化させることができます。
 
-［定数ステップサイズ］ $\eta_t = \overline{\eta}$
+>［定数ステップサイズ］ $\eta_t = \overline{\eta}$
 
-［減衰ステップサイズ］ $\eta_t = \frac{\overline{\eta}}{\sqrt{t+1}} \ (t \in [0 : T-1])$
+>［減衰ステップサイズ］ $\eta_t = \frac{\overline{\eta}}{\sqrt{t+1}} \ (t \in [0 : T-1])$
 
-［線形減衰ステップサイズ］ $\eta_t = \overline{\eta}\left(1-\frac{t}{T}\right) \ (t \in [0 : T-1])$
+>［線形減衰ステップサイズ］ $\eta_t = \overline{\eta}\left(1-\frac{t}{T}\right) \ (t \in [0 : T-1])$
 
-［コサインステップサイズ］ $\eta_t = \frac{\overline{\eta}}{2}\left(1+\cos{\frac{t\pi}{T}}\right) \ (t \in [0 : T-1])$
+>［コサインステップサイズ］ $\eta_t = \frac{\overline{\eta}}{2}\left(1+\cos{\frac{t\pi}{T}}\right) \ (t \in [0 : T-1])$
 
-［指数増加ステップサイズ］ $\eta_t = \underline{\eta} r^{t} \ (t \in [0 : T-1])$
+>［指数増加ステップサイズ］ $\eta_t = \underline{\eta} r^{t} \ (t \in [0 : T-1])$
 
-［ウォームアップステップサイズ］ $\eta_t = \underline{\eta} r^{t} \ (t \in [0 : T_w]), \quad \eta_t =\underline{\eta} r^{T_w} \ (t \in [T_w : T-1])$
+>［ウォームアップステップサイズ］ $\eta_t = \underline{\eta} r^{t} \ (t \in [0 : T_w]), \quad \eta_t =\underline{\eta} r^{T_w} \ (t \in [T_w : T-1])$
 
 スケジューラの概形は以下の通りです。
 
 ![スケジューラ](graph/png/step_size_plot.png)
 
 ## 実験結果
-結果１：上記のスケジューラにおける関数値 $f(\bm{\theta}_t)$ と勾配ノルム $\|\nabla f(\bm{\theta}_t)\|$
+結果１：上記のスケジューラにおける関数値 $f(\boldsymbol{\theta}_t)$ と勾配ノルム $\|\nabla f(\boldsymbol{\theta}_t)\|$
 
 ![結果1](graph/png/comparison_plots.png)
 
-結果２：定数ステップサイズにおける関数値 $f(\bm{\theta}_t)$ と勾配ノルム $\|\nabla f(\bm{\theta}_t)\|$ の収束と発散
+結果２：定数ステップサイズにおける関数値 $f(\boldsymbol{\theta}_t)$ と勾配ノルム $\|\nabla f(\boldsymbol{\theta}_t)\|$ の収束と発散
 
 ![結果1](graph/png/const_comp_plots.png)
 
