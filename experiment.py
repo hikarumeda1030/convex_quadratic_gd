@@ -34,15 +34,11 @@ def cosine_schedule(eta_max, T):
     return lambda t: 0.5 * eta_max * (1 + np.cos(np.pi * t / T))
 
 
-def linear_increase_schedule():
-    return lambda t: 0.001 * t
-
-
 def exp_increase_schedule(eta, r):
     return lambda t: eta * r**t
 
 
-def linear_increase_schedule2(eta_max, T):
+def linear_increase_schedule(eta_max, T):
     return lambda t: eta_max * t / T
 
 
